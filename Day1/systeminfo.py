@@ -11,7 +11,14 @@ def get_system_info():
     print(f"Total Memory: {total_memory_gb:.2f} GB")
     print(f"Available Memory: {available_memory_gb:.2f} GB")
 
+def get_disk_info():
+    disk_usage = psutil.disk_usage('/')
+    print(f"Disk Total: {disk_usage.total / (1024 ** 3):.2f} GB")
+    print(f"Disk free: {disk_usage.free / (1024 ** 3):.2f} GB")
+    print(f"Disk used: {disk_usage.used / (1024 ** 3):.2f} GB")
+
 
 
 if __name__ == "__main__":
     get_system_info()
+    get_disk_info()
